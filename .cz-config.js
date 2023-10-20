@@ -1,25 +1,47 @@
 module.exports = {
     types: [
-        { value: 'feature', name: 'feature:  增加新功能' },
-        { value: 'bug', name: 'bug:      测试反馈bug列表中的bug号' },
-        { value: 'fix', name: 'fix:      修复bug' },
-        { value: 'ui', name: 'ui:       更新UI' },
-        { value: 'docs', name: 'docs:     文档变更' },
-        { value: 'style', name: 'style:    代码格式(不影响代码运行的变动)' },
-        { value: 'perf', name: 'perf:     性能优化' },
         {
-            value: 'refactor',
-            name: 'refactor: 重构(既不是增加feature，也不是修复bug)',
+            value: ':sparkles: feature',
+            name: 'feature:     新增功能 ✨ | A new feature',
         },
-        { value: 'release', name: 'release:  发布' },
-        { value: 'deploy', name: 'deploy:   部署' },
-        { value: 'test', name: 'test:     增加测试' },
+        { value: ':bug: fix', name: 'fix:      修复缺陷 🐛 | A bug fix' },
         {
-            value: 'chore',
-            name: 'chore:    构建过程或辅助工具的变动(更改配置文件)',
+            value: ':pencil2: docs',
+            name: 'docs:     文档更新 ✏️ | Documentation only changes',
         },
-        { value: 'revert', name: 'revert:   回退' },
-        { value: 'build', name: 'build:    打包' },
+        {
+            value: ':art: style',
+            name: 'style:    代码格式 🎨 | Changes that do not affect the meaning of the code',
+        },
+        {
+            value: ':zap: perf',
+            name: 'perf:     性能提升 ⚡ | A code change that improves performance',
+        },
+        {
+            value: ':recycle: refactor',
+            name: 'refactor: 代码重构 ♻ | A code change that neither fixes a bug nor adds a feature',
+        },
+        {
+            value: ':test_tube: test',
+            name: 'test:     测试相关 🧪 | Adding missing tests or correcting existing tests',
+        },
+        {
+            value: ':tada: chore',
+            name: 'chore:    其他修改 🎉 | Other changes that do not modify src or test files',
+        },
+        {
+            value: ':rewind: revert',
+            name: 'revert:   回退代码 ⏪️ | Revert to a commit',
+        },
+        {
+            value: ':package: build',
+            name: 'build:    构建相关 📦️ | Changes that affect the build system or external dependencies',
+        },
+
+        {
+            value: ':green_heart: ci',
+            name: 'ci:       持续集成 💚 | Changes to our CI configuration files and scripts',
+        },
     ],
     // override the messages, defaults are as follows
     messages: {
