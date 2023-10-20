@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
 import VueUse from '@/pages/vueUse.vue';
+// TODO import.meta.env.VITE_APP_WEB_URL:当前环境的URL
 </script>
 
 <template>

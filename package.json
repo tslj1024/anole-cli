@@ -1,10 +1,12 @@
 {
     "name": "mayuan-cli",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.1.0",
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc && vite build",
+        "build:dev": "vite build --mode development",
+        "build:pro": "vite build --mode production",
         "preview": "vite preview",
         "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .ts,.tsx,.vue,.js,.jsx 的文件",
         "eslint": "eslint --fix src --ext .ts,.tsx,.vue,.js,.jsx --ignore-path .gitignore",
