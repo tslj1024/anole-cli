@@ -97,6 +97,9 @@ devDependencies:
     vite:
         specifier: ^4.4.5
         version: registry.npmmirror.com/vite@4.4.5(@types/node@20.8.7)(sass@1.69.4)
+    vite-plugin-compression:
+        specifier: ^0.5.1
+        version: registry.npmmirror.com/vite-plugin-compression@0.5.1(vite@4.4.5)
     vue-tsc:
         specifier: ^1.8.5
         version: registry.npmmirror.com/vue-tsc@1.8.5(typescript@5.0.2)
@@ -4503,6 +4506,22 @@ packages:
             mime-types: registry.npmmirror.com/mime-types@2.1.35
         dev: false
 
+    registry.npmmirror.com/fs-extra@10.1.0:
+        resolution:
+            {
+                integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==,
+                registry: https://registry.npm.taobao.org/,
+                tarball: https://registry.npmmirror.com/fs-extra/-/fs-extra-10.1.0.tgz,
+            }
+        name: fs-extra
+        version: 10.1.0
+        engines: { node: '>=12' }
+        dependencies:
+            graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
+            jsonfile: registry.npmmirror.com/jsonfile@6.1.0
+            universalify: registry.npmmirror.com/universalify@2.0.0
+        dev: true
+
     registry.npmmirror.com/fs-extra@11.1.1:
         resolution:
             {
@@ -8675,6 +8694,27 @@ packages:
             }
         name: vfonts
         version: 0.0.3
+        dev: true
+
+    registry.npmmirror.com/vite-plugin-compression@0.5.1(vite@4.4.5):
+        resolution:
+            {
+                integrity: sha512-5QJKBDc+gNYVqL/skgFAP81Yuzo9R+EAf19d+EtsMF/i8kFUpNi3J/H01QD3Oo8zBQn+NzoCIFkpPLynoOzaJg==,
+                registry: https://registry.npm.taobao.org/,
+                tarball: https://registry.npmmirror.com/vite-plugin-compression/-/vite-plugin-compression-0.5.1.tgz,
+            }
+        id: registry.npmmirror.com/vite-plugin-compression/0.5.1
+        name: vite-plugin-compression
+        version: 0.5.1
+        peerDependencies:
+            vite: '>=2.0.0'
+        dependencies:
+            chalk: registry.npmmirror.com/chalk@4.1.2
+            debug: registry.npmmirror.com/debug@4.3.4
+            fs-extra: registry.npmmirror.com/fs-extra@10.1.0
+            vite: registry.npmmirror.com/vite@4.4.5(@types/node@20.8.7)(sass@1.69.4)
+        transitivePeerDependencies:
+            - supports-color
         dev: true
 
     registry.npmmirror.com/vite@4.4.5(@types/node@20.8.7)(sass@1.69.4):
