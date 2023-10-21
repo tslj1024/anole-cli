@@ -1,21 +1,27 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
 import VueUse from '@/pages/vueUse.vue';
+import { zhCN, darkTheme } from 'naive-ui';
 // TODO import.meta.env.VITE_APP_WEB_URL:当前环境的URL
 </script>
 
 <template>
-    <div>
-        <a href="https://vitejs.dev" target="_blank">
-            <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://vuejs.org/" target="_blank">
-            <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-        </a>
-    </div>
-    <HelloWorld msg="Vite + Vue" />
-    <vue-use />
-    <router-view />
+    <n-config-provider :locale="zhCN" :theme="darkTheme">
+        <!-- 容器 -->
+        <div>
+            <a href="https://vitejs.dev" target="_blank">
+                <img src="/vite.svg" class="logo" alt="Vite logo" />
+            </a>
+            <a href="https://vuejs.org/" target="_blank">
+                <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+            </a>
+        </div>
+        <HelloWorld msg="Vite + Vue" />
+        <n-button type="primary">naive-ui</n-button>
+        <n-input />
+        <vue-use />
+        <router-view />
+    </n-config-provider>
 </template>
 
 <style scoped>
