@@ -14,6 +14,9 @@ dependencies:
     pinia:
         specifier: ^2.1.7
         version: registry.npmmirror.com/pinia@2.1.7(typescript@5.0.2)(vue@3.3.4)
+    pinia-plugin-persistedstate:
+        specifier: ^3.2.0
+        version: registry.npmmirror.com/pinia-plugin-persistedstate@3.2.0(pinia@2.1.7)
     vue:
         specifier: ^3.3.4
         version: registry.npmmirror.com/vue@3.3.4
