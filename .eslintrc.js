@@ -36,8 +36,6 @@ module.exports = {
         '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
-        'no-var': 'error',
-        'prettier/prettier': 'error',
         // 禁止出现console
         'no-console': 'warn',
         // 禁用debugger
@@ -145,6 +143,8 @@ module.exports = {
         'no-extra-boolean-cast': 'warn',
         'no-case-declarations': 'warn',
         'no-async-promise-executor': 'warn',
+        'prettier/prettier': 'warn',
+        'no-var': 'error',
     },
     globals: {
         defineProps: 'readonly',

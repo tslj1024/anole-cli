@@ -2,6 +2,12 @@
 import HelloWorld from './components/HelloWorld.vue';
 import VueUse from '@/pages/vueUse.vue';
 import { zhCN, darkTheme } from 'naive-ui';
+import apis from '@/api';
+
+const testAxios = async () => {
+    const { data, err } = await apis.get['/test']();
+    console.log(JSON.parse(JSON.stringify(data)));
+};
 // TODO import.meta.env.VITE_APP_WEB_URL:当前环境的URL
 </script>
 
@@ -17,7 +23,7 @@ import { zhCN, darkTheme } from 'naive-ui';
             </a>
         </div>
         <HelloWorld msg="Vite + Vue" />
-        <n-button type="primary">naive-ui</n-button>
+        <n-button type="primary" @click="testAxios">naive-ui</n-button>
         <n-input />
         <vue-use />
         <router-view />

@@ -35,8 +35,9 @@ export default defineConfig({
         // 设置 https 代理
         proxy: {
             '/api': {
-                target: 'http://localhost:8000/mayuan-api',
+                target: 'http://localhost:8000/mayuan-boot-api',
                 changeOrigin: true,
+                secure: false, // https 需要设置 true
                 rewrite: (path: string) => path.replace(/^\/api/, ''),
             },
         },
