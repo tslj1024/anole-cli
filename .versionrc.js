@@ -7,7 +7,7 @@ module.exports = {
         { type: 'perf', section: '⚡ Performance Improvements | 性能优化' },
         { type: 'refactor', section: '♻️ Code Refactoring | 代码重构' },
         { type: 'test', section: '✅ Tests | 测试' },
-        { type: 'chore', section: '🚀 Chore | 构建/工程依赖/工具' },
+        { type: 'chore', section: '🚀 Chore | 其他配置' },
         { type: 'revert', section: '⏪ Revert | 回退' },
         { type: 'build', section: '📦‍ Build System | 打包构建' },
         { type: 'ci', section: '👷 Continuous Integration | CI 配置' },
