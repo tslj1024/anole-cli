@@ -2,7 +2,9 @@ import makeRequest from '../request';
 
 export default {
     '/test': makeRequest<{ admins: string[] }>({
-        url: '/test',
+        url: '/test/{asc}',
+        desc: '测试接口',
+        notifyWhenFailure: true,
     }),
     '/admins': makeRequest<{ admins: string[] }>({
         url: '/admins',

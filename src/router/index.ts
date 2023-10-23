@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
+// TODO 动态路由
 const routes: Array<RouteRecordRaw> = [
     // eg:
     // {

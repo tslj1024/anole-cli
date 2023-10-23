@@ -1,9 +1,31 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useNotification } from 'naive-ui';
+import apis from '@/api';
+
+const notification = useNotification();
 
 defineProps<{ msg: string }>();
 
 const count = ref(0);
+const testnotify = () => {
+    notification.info({
+        title: '叮咚！',
+        description: '通知描述',
+        content: '通知内容',
+        meta: '元信息',
+        duration: 3000,
+        keepAliveOnHover: true,
+    });
+};
+const testAxios = async () => {
+    const { data, err } = await apis.get['/test']({
+        args: {
+            asc: '123',
+        },
+        isAuth: true,
+    });
+};
 </script>
 
 <template>
@@ -16,7 +38,10 @@ const count = ref(0);
             <code>components/HelloWorld.vue</code> to test HMR
         </p>
     </div>
-    <n-button>naive-ui</n-button>
+
+    <n-button @click="testnotify">naive-ui</n-button>
+    <n-button type="primary" @click="testAxios">naive-ui</n-button>
+    <n-input />
 
     <p>
         Check out

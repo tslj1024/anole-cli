@@ -29,13 +29,16 @@ export const useUserStore = defineStore({
     // },
     state: () => {
         return {
-            name: '张三',
+            token: 'token',
+            info: {
+                name: '张三',
+            },
         };
     },
-    actions: {
-        updateName(name: string) {
-            this.name = name;
+    actions: {},
+    getters: {
+        getToken(): string {
+            return this.token;
         },
     },
-    getters: {},
 });

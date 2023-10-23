@@ -1,22 +1,59 @@
-import type { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import axios from 'axios';
 import urlArgs from './interceptor/url-args';
+import authHandler from './interceptor/auth';
+import limiter from './interceptor/limit-flow';
+import exception from './interceptor/exception';
+import custom from '@/api/request/interceptor/custom';
 
 const instance = axios.create({
     timeout: 10000,
     baseURL: '/api',
 });
-// @ts-ignore
+// 前置拦截 => 后添加先执行
+// @ts-ignore 前置限流
+instance.interceptors.request.use(limiter.request.onFulfilled, undefined);
+// @ts-ignore 加权限
+instance.interceptors.request.use(authHandler.request.onFulfilled, undefined);
+// @ts-ignore args参数检查
 instance.interceptors.request.use(urlArgs.request.onFulfilled, undefined);
+// @ts-ignore 自定义拦截器
+instance.interceptors.request.use(
+    // @ts-ignore
+    custom.request.onFulfilled,
+    custom.request.onRejected,
+);
+
+// 后置拦截 => 顺序执行
+// 自定义拦截器
+instance.interceptors.response.use(
+    custom.response.onFulfilled,
+    custom.response.onRejected,
+);
+// 接口异常拦截器
+instance.interceptors.response.use(
+    exception.response.onFulfilled,
+    exception.response.onRejected,
+);
+// 后置限流
+instance.interceptors.response.use(
+    limiter.response.onFulfilled,
+    limiter.response.onRejected,
+);
 
 export interface ResultFormat<T = any> {
     data: null | T;
-    err: AxiosError | null;
+    // err: AxiosError | null;
     response: AxiosResponse<T> | null;
 }
 
 export interface RequestConfig extends AxiosRequestConfig {
     args?: Record<string, any>;
+    isAuth?: boolean; // 手动控制要不要携带 token
+    limit?: number; // 限流
+    desc?: string; // 功能描述
+    notifyWhenSuccess?: boolean; // 手动开启/关闭成功后通知
+    notifyWhenFailure?: boolean; // 手动开启/关闭失败后通知
 }
 
 /**
@@ -74,15 +111,13 @@ const makeRequest: MakeRequest = <T>(config: RequestConfig) => {
                 ...requestConfig?.headers,
             },
         };
-        // 统一处理返回类型
-        try {
-            const response: AxiosResponse<T, RequestConfig> =
-                await instance.request<T>(mergedConfig);
-            const { data } = response;
-            return { err: null, data, response };
-        } catch (err: any) {
-            return { err, data: null, response: null };
-        }
+        const response: AxiosResponse<T, RequestConfig> =
+            await instance.request<T>(mergedConfig);
+        const { data } = response;
+        return { data, response };
+        // 这样就可以通过判断 data 是否有效，判断此次接口请求是否成功
+        // 如果成功：data 就是返回的数据
+        // 如果未成功：response 就是返回的错误信息
     };
 };
 
