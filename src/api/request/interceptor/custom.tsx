@@ -2,22 +2,22 @@ import { RequestConfig } from '@/api/request';
 import { AxiosResponse, AxiosError } from 'axios';
 
 const custom = {
-    request: {
-        onFulfilled: async (config: RequestConfig) => {
-            return config;
-        },
-        onRejected: (error: AxiosError<any>) => {
-            return Promise.reject(error);
-        },
+  request: {
+    onFulfilled: async (config: RequestConfig) => {
+      return config;
     },
-    response: {
-        onFulfilled: (response: AxiosResponse<any>) => {
-            return response;
-        },
-        onRejected: (error: AxiosError<any>) => {
-            return Promise.reject(error);
-        },
+    onRejected: (error: AxiosError<any>) => {
+      return Promise.reject(error);
     },
+  },
+  response: {
+    onFulfilled: (response: AxiosResponse<any>) => {
+      return response;
+    },
+    onRejected: (error: AxiosError<any>) => {
+      return Promise.reject(error);
+    },
+  },
 };
 
 /*

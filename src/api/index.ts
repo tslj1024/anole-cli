@@ -4,10 +4,10 @@ import post from './apis/post';
 import put from './apis/put';
 
 const apis = {
-    get,
-    post,
-    put,
-    delete: deleteApis,
+  get,
+  post,
+  put,
+  delete: deleteApis,
 };
 
 export default apis;
