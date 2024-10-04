@@ -37,6 +37,8 @@ const testAxios = async () => {
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
     </p>
+    <!-- 来自 Material Design 图标库的橙色警报 -->
+    <div class="i-mdi-alarm text-orange-400" />
   </div>
 
   <n-button @click="testnotify">naive-ui</n-button>
