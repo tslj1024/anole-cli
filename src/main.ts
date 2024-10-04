@@ -9,6 +9,7 @@ import {
   NButton,
   NInput,
 } from 'naive-ui';
+import 'virtual:uno.css';
 
 // 创建vue实例
 const app = createApp(App);

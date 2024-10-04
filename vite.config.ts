@@ -4,6 +4,7 @@ import * as path from 'path';
 // @ts-ignore
 import viteCompression from 'vite-plugin-compression';
 import { viteMockServe } from 'vite-plugin-mock';
+import UnoCSS from 'unocss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,6 +23,7 @@ export default defineConfig({
       mockPath: 'mock', // 设置mock数据文件夹
       enable: true, // 是否启用mock
     }),
+    UnoCSS(),
   ],
   resolve: {
     //设置别名

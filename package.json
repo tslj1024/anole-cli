@@ -54,6 +54,7 @@
     "sass": "^1.69.4",
     "standard-version": "^9.5.0",
     "typescript": "^5.0.2",
+    "unocss": "^0.63.2",
     "vfonts": "^0.0.3",
     "vite": "^4.4.5",
     "vite-plugin-compression": "^0.5.1",
